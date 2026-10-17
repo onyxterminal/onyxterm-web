@@ -37,26 +37,26 @@ export const MODEL = [
   {
     n: '01',
     name: 'Workspace',
-    what: 'A whole working context: its own tabs, layouts, pane names and root path.',
+    what: 'One home per project.',
     keys: '⇧⌘N new · ⌘O switch · ⌥⌘[ ]',
     blurb:
-      'Give every project a home. Each workspace keeps its own layout, so switching never restarts a shell and never resets your arrangement.',
+      'Switch away and your layout, pane names, working directories and running shells come back exactly as you left them. Nothing restarts. Nothing gets lost.',
   },
   {
     n: '02',
     name: 'Tab',
-    what: 'One split layout with a name you chose.',
+    what: 'A name you choose.',
     keys: '⌘T new · ⌘R rename · ⌘1–9 jump',
     blurb:
-      'Double-click a tab to rename it inline, or hit ⌘R. Empty the name and it falls back to a number. Names persist across restarts.',
+      'Stop counting tabs. Call it "api", "infra", "claude". Hit ⌘R or double-click the tab. It sticks across restarts — clear the name and it falls back to a number.',
   },
   {
     n: '03',
     name: 'Pane',
-    what: 'One real PTY running a shell, an editor, or an agent.',
+    what: 'One process, one address.',
     keys: '⌘D split right · ⇧⌘D down · ⌥⌘←↑↓→',
     blurb:
-      'Resize, maximize, move and swap panes by keyboard or mouse. Closing a pane with a live process asks before it takes anything down.',
+      'Split, resize, move and swap by keyboard or mouse. Rearrange all you like — your processes keep running. Close a pane holding something live and it asks first.',
   },
 ]
 
@@ -82,7 +82,7 @@ export const FEATURES = [
   {
     n: '01',
     title: 'Real PTY terminals',
-    body: 'Real PTYs, not pipes. Full VT emulation, true color, alternate screen, bracketed paste and wide glyphs.',
+    body: 'Real PTYs, not pipes. Full VT, true color, alternate screen, bracketed paste, wide glyphs.',
   },
   {
     n: '02',
@@ -92,27 +92,27 @@ export const FEATURES = [
   {
     n: '03',
     title: 'Named everything',
-    body: 'Workspaces, tabs and panes each get a name. Nothing is stuck as “Tab 7”.',
+    body: 'Workspaces, tabs and panes all get names. Nothing stays stuck as “Tab 7”.',
   },
   {
     n: '04',
     title: 'Command palette',
-    body: 'Fuzzy palette over every registered command, with the shortcut shown next to it.',
+    body: 'Type two letters, hit enter. Every action is one keystroke away.',
   },
   {
     n: '05',
     title: 'Rebindable keys',
-    body: 'Every shortcut is registered and conflict-checked. Override any of them in Settings.',
+    body: 'Conflict-checked, and overridable from Settings. Make it feel like yours.',
   },
   {
     n: '06',
     title: 'A mouse that behaves',
-    body: 'Selection, click-drag extend, middle-click paste, cmd-click links, and full mouse reporting.',
+    body: 'Selection, middle-click paste, cmd-click links, and full mouse reporting for apps that want it.',
   },
   {
     n: '07',
     title: 'Copy mode & search',
-    body: 'Search scrollback, step with the keyboard, copy straight to the clipboard on mouse up.',
+    body: 'Search your scrollback, step with the keyboard, copy straight to the clipboard.',
   },
   {
     n: '08',
@@ -122,12 +122,12 @@ export const FEATURES = [
   {
     n: '09',
     title: 'Six themes',
-    body: 'Apple Light, Onyx Dark, Nord, Dracula, Solarized. Customize any with hex values.',
+    body: 'Apple Light, Onyx Dark, Nord, Dracula, Solarized. Customize any of them with hex values.',
   },
   {
     n: '10',
     title: 'Local and private',
-    body: 'No account, no telemetry, no cloud. Metadata lives in a local SQLite file.',
+    body: 'No account, no telemetry, no cloud. Your data is a file on your own disk.',
   },
 ]
 

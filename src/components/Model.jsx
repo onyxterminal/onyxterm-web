@@ -6,8 +6,8 @@ export default function Model() {
     <Section id="model">
       <SectionHead
         eyebrow="how it works"
-        title="Four nested containers. You only ever touch the one you need."
-        lede="Workspace holds tabs, tab holds splits, split holds panes, pane holds a process. Each layer has its own name and its own keys."
+        title="Three levels. One mental model."
+        lede="A workspace holds tabs. A tab holds splits. A split holds panes. A pane holds one process. Everything under the workspace is named — so you never scroll a tab bar hunting for a number again."
       />
 
       <Stagger className="grid gap-4 md:grid-cols-3">
@@ -33,10 +33,9 @@ export default function Model() {
           <div className="h-full rounded-xl border border-line bg-surface p-6">
             <h3 className="font-mono text-sm tracking-tight text-ink">Layouts survive</h3>
             <p className="mt-3 text-[14px] leading-relaxed text-ink2">
-              Every tab, split, focus position, pane name and working directory is written to a
-              local SQLite database. Quit, reopen, and your workspace is where you left it. Shells
-              come back as <span className="text-ink">new</span> sessions — honestly marked, never
-              faked.
+              Every tab, split, pane name and working directory is written to a local SQLite file.
+              Quit, reopen, and your workspace is exactly where you left it. Shells come back as{' '}
+              <span className="text-ink">new</span> sessions — marked honestly, never faked.
             </p>
           </div>
         </Reveal>
@@ -46,7 +45,7 @@ export default function Model() {
             <p className="mt-3 text-[14px] leading-relaxed text-ink2">
               Closing a pane, stopping an agent and quitting Onyx are three separate actions. A pane
               holding a live process asks before it takes anything down, and quitting tells you how
-              many sessions will end first.
+              many sessions will end before you commit.
             </p>
           </div>
         </Reveal>

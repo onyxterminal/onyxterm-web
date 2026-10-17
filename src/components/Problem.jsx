@@ -96,8 +96,8 @@ export default function Problem() {
     <Section id="why">
       <SectionHead
         eyebrow="the problem"
-        title="Ghostty and Zellij made a terminal feel great. Then AI agents showed up."
-        lede="Six shells, four agent sessions, one remote box — and no way to find any of them. Every launch you have to re-narrate where you were."
+        title="Ghostty plus Zellij was the dream combo."
+        lede="Then AI agents showed up. Suddenly you're running six shells and four coding sessions with no idea which tab is which. That's tab soup — and it is the terminal's fault."
       />
 
       <Stagger className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-4">
@@ -122,8 +122,9 @@ export default function Problem() {
 
       <Reveal delay={0.1}>
         <p className="mt-2 max-w-3xl text-lg leading-relaxed text-ink2">
-          Onyx treats a shell and a coding agent as the same kind of thing: a pane, in a split, in
-          a tab, in a workspace with a name. Nothing to find, because everything is where you put it.
+          Onyx treats a shell and a coding agent as the same thing: a pane, in a split, in a tab, in
+          a workspace with a name.{' '}
+          <span className="text-ink">Nothing to find, because everything is where you put it.</span>
         </p>
       </Reveal>
     </Section>

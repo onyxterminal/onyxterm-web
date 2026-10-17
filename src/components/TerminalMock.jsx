@@ -138,7 +138,7 @@ export default function TerminalMock() {
   )
 
   return (
-    <div className="overflow-hidden rounded-xl border border-line2 bg-surface shadow-[0_30px_90px_-30px_rgba(0,0,0,0.95)]">
+    <div className="overflow-hidden rounded-xl border border-line2 bg-surface shadow-[0_24px_60px_-28px_rgba(31,35,40,0.28)]">
       {/* title bar */}
       <div className="flex items-center gap-3 border-b border-line bg-sunken px-3.5 py-2.5">
         <div className="flex gap-1.5">

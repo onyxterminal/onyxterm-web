@@ -16,8 +16,8 @@ export default function Fidelity() {
     <Section id="fidelity">
       <SectionHead
         eyebrow="terminal fidelity"
-        title="The chrome is new. The terminal underneath is not a toy."
-        lede="It runs real PTYs through a full VT engine, and it behaves like it when a program asks for something particular."
+        title="New chrome. An old-school terminal underneath."
+        lede="It's a real PTY running a full VT engine. Programs ask for mouse reporting, specific cursors, alternate screen and focus events — and they get them."
       />
 
       <div className="grid gap-4 lg:grid-cols-5">

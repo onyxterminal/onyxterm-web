@@ -61,8 +61,8 @@ export default function Install() {
     <Section id="install">
       <SectionHead
         eyebrow="install"
-        title="One disk image. That is the whole install."
-        lede={`Grab ${VERSION}, drop it in Applications, and clear one flag. Everything else is in the app.`}
+        title="Download. Drag. Done."
+        lede={`One ${'6.9 MB'} disk image for macOS 13+ on Apple Silicon. No installer, no account, no telemetry, no email.`}
       />
 
       <div className="grid gap-4 lg:grid-cols-5">

@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 grid-bg" aria-hidden />
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/3 rounded-full opacity-60 blur-3xl"
-        style={{ background: 'radial-gradient(closest-side, rgba(255,106,51,0.13), transparent)' }}
+        style={{ background: 'radial-gradient(closest-side, rgba(217,72,15,0.10), transparent)' }}
         aria-hidden
       />
 
@@ -56,10 +56,10 @@ export default function Hero() {
             .
           </motion.h1>
 
-          <motion.p custom={2} variants={rise} className="max-w-[62ch] text-lg leading-relaxed text-ink2 md:text-xl">
-            Onyx is a native Rust terminal where your shells and your AI coding agents live side by
-            side instead of drowning in tab soup. Named workspaces, splits that persist, and panes
-            you can actually find again.
+          <motion.p custom={2} variants={rise} className="max-w-[60ch] text-lg leading-relaxed text-ink2 md:text-xl">
+            Six shells. Four agents. One remote box. None of them named.{' '}
+            <span className="text-ink">Onyx puts all of it in one workspace</span> — and
+            remembers exactly how you left it.
           </motion.p>
 
           <motion.div custom={3} variants={rise} className="flex flex-wrap items-center gap-3">

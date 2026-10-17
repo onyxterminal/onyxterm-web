@@ -6,8 +6,8 @@ export default function Shortcuts() {
     <Section id="shortcuts">
       <SectionHead
         eyebrow="keyboard first"
-        title="Every core action has a key. Every key can be changed."
-        lede="Shortcuts live in one registry with stable IDs. Conflicts are detected and reported rather than silently shadowing each other, and you can rebind any of them in Settings."
+        title="Every action has a key. Every key is yours."
+        lede="One registry, conflict-checked so nothing silently shadows anything else, and rebindable from Settings. Keys your program needs are left alone — Ctrl-C still interrupts, Ctrl-D still ends."
       />
 
       <Reveal>

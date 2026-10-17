@@ -14,8 +14,8 @@ export default function Agents() {
     <Section id="agents">
       <SectionHead
         eyebrow="agent manager"
-        title="Your coding agents get a pane, not a scavenger hunt."
-        lede="Launch a CLI agent into an assigned pane with a working directory you choose, then focus, watch or stop it like any other session. Onyx runs the CLIs you already have — it does not embed a model."
+        title="Your agents get a pane. Not a scavenger hunt."
+        lede="Launch claude or codex straight into a pane with the directory you want, then focus, watch or stop it like anything else. Onyx runs the CLIs you already have — no model baked in, no new account, no new login."
       />
 
       <Stagger className="grid gap-4 md:grid-cols-2">

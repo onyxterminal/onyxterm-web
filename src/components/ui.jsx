@@ -97,7 +97,7 @@ export function CTA({ href, children, variant = 'ghost', className = '', downloa
     'group inline-flex items-center gap-2 rounded-md px-5 py-3 font-mono text-[13px] font-medium transition-all duration-200 whitespace-nowrap'
   const styles = {
     primary:
-      'bg-accent text-[#0a0a0a] hover:bg-accent2 shadow-[0_0_0_0_rgba(255,106,51,0.5)] hover:shadow-[0_0_28px_-4px_rgba(255,106,51,0.55)]',
+      'bg-accent text-onaccent hover:brightness-110 shadow-[0_0_0_0_rgba(217,72,15,0.35)] hover:shadow-[0_8px_26px_-8px_rgba(217,72,15,0.55)]',
     ghost:
       'border border-line2 text-ink hover:border-ink hover:bg-surface',
     quiet: 'text-muted hover:text-ink',

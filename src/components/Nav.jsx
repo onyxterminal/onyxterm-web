@@ -49,7 +49,7 @@ export default function Nav() {
           <a
             href={LINKS.download}
             download
-            className="rounded-md bg-accent px-4 py-2 font-mono text-[13px] font-medium text-[#0a0a0a] transition-colors hover:bg-accent2"
+            className="rounded-md bg-accent px-4 py-2 font-mono text-[13px] font-medium text-onaccent transition-[filter] hover:brightness-110"
           >
             Download
           </a>
@@ -102,7 +102,7 @@ export default function Nav() {
               <a
                 href={LINKS.download}
                 download
-                className="mt-2 mb-3 rounded-md bg-accent px-4 py-3 text-center font-mono text-[13px] font-medium text-[#0a0a0a]"
+                className="mt-2 mb-3 rounded-md bg-accent px-4 py-3 text-center font-mono text-[13px] font-medium text-onaccent"
               >
                 Download for macOS
               </a>

@@ -6,8 +6,8 @@ export default function Features() {
     <Section id="features">
       <SectionHead
         eyebrow="features"
-        title="Shipped in v0.4.0, not on a roadmap."
-        lede="Everything below is in the release you can download right now."
+        title="Everything below ships in v0.4.0."
+        lede="No “coming soon” column. No waitlist. Download it and it's already there."
       />
 
       <Stagger className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
