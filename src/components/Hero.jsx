@@ -20,10 +20,10 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden />
 
-      {/* the mark, rasterised, sitting behind the whole page */}
+      {/* the mark, rasterised, sitting behind the content on the right */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center">
-          <AsciiLogo className="text-[clamp(30px,8.5vw,86px)] text-ink/[0.055]" />
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 md:right-14 lg:right-20">
+          <AsciiLogo className="text-[clamp(13px,1.9vw,20px)] text-ink/[0.08]" />
         </div>
       </div>
 
