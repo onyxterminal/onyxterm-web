@@ -1,6 +1,5 @@
 import { motion } from 'motion/react'
 import Diagram from './Diagram.jsx'
-import AsciiLogo from './AsciiLogo.jsx'
 import { CTA, Reveal } from './ui.jsx'
 import { LINKS, SPECS } from '../site.js'
 
@@ -19,13 +18,6 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden />
-
-      {/* the mark, rasterised, sitting behind the content on the right */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute top-1/2 right-8 -translate-y-1/2 md:right-14 lg:right-20">
-          <AsciiLogo className="text-[clamp(13px,1.9vw,20px)] text-ink/[0.08]" />
-        </div>
-      </div>
 
       <div className="rule-frame relative mx-auto w-full max-w-7xl">
         <div className="px-5 pt-16 pb-10 sm:px-10 md:pt-24 md:pb-14">
