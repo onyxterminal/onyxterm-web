@@ -1,62 +1,17 @@
-import {
-  Terminal,
-  Bot,
-  Tags,
-  Command,
-  Keyboard,
-  MousePointer2,
-  Copy,
-  FolderTree,
-  Palette,
-  ShieldCheck,
-} from 'lucide-react'
+import { Terminal, Bot, Tags, Keyboard, FolderTree, ShieldCheck } from 'lucide-react'
 import { Section, SectionHead, Stagger, StaggerItem } from './ui.jsx'
 import { FEATURES } from '../site.js'
 
-const ICONS = {
-  Terminal,
-  Bot,
-  Tags,
-  Command,
-  Keyboard,
-  MousePointer2,
-  Copy,
-  FolderTree,
-  Palette,
-  ShieldCheck,
-}
+const ICONS = { Terminal, Bot, Tags, Keyboard, FolderTree, ShieldCheck }
 
 const ANSI = ['#d1242f', '#1a7f37', '#0969da', '#8250df', '#bf8700', '#1f2328']
 
-/** A little swatch strip for the wide PTY card. */
+/** A swatch strip for the wide PTY card. */
 function AnsiStrip() {
   return (
     <div className="mt-5 flex gap-1.5" aria-hidden>
       {ANSI.map((c, i) => (
-        <span
-          key={c}
-          className="h-1.5 flex-1 rounded-full"
-          style={{
-            background: c,
-            opacity: 0.25 + i * 0.12,
-            transitionDelay: `${i * 40}ms`,
-          }}
-        />
-      ))}
-    </div>
-  )
-}
-
-/** A faux scrollback meter for the wide copy-mode card. */
-function ScrollbackMeter() {
-  return (
-    <div className="mt-5 space-y-1.5" aria-hidden>
-      {[92, 74, 60, 81, 45, 68, 55].map((w, i) => (
-        <span
-          key={i}
-          className="block h-1.5 rounded-full bg-line"
-          style={{ width: `${w}%` }}
-        />
+        <span key={c} className="h-1.5 flex-1 rounded-full" style={{ opacity: 0.2 + i * 0.14 }} />
       ))}
     </div>
   )
@@ -103,7 +58,6 @@ export default function Features() {
                 <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{f.body}</p>
 
                 {f.n === '01' && <AnsiStrip />}
-                {f.n === '07' && <ScrollbackMeter />}
               </article>
             </StaggerItem>
           )

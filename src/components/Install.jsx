@@ -14,7 +14,7 @@ function CopyBlock({ label, code, multiline = false }) {
     }
   }
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-line bg-bg">
+    <div className="overflow-hidden rounded-lg border border-line bg-bg">
       {label && (
         <div className="flex items-center justify-between border-b border-line px-4 py-2">
           <span className="font-mono text-[10.5px] tracking-[0.12em] text-faint uppercase">
@@ -23,7 +23,7 @@ function CopyBlock({ label, code, multiline = false }) {
           <button
             type="button"
             onClick={copy}
-            className="font-mono text-[10.5px] text-faint transition-colors hover:text-accent"
+            className="font-mono text-[10.5px] text-faint transition-colors hover:text-ink"
           >
             {copied ? 'copied ✓' : 'copy'}
           </button>
@@ -38,105 +38,74 @@ function CopyBlock({ label, code, multiline = false }) {
   )
 }
 
-const STEPS = [
-  {
-    n: '01',
-    title: 'Download the disk image',
-    body: 'One 6.9 MB DMG for macOS 13+ on Apple Silicon. No installer, no account, no telemetry.',
-  },
-  {
-    n: '02',
-    title: 'Drag Onyx into Applications',
-    body: 'It installs like any other Mac app and shows up in Spotlight and the Dock immediately.',
-  },
-  {
-    n: '03',
-    title: 'Clear the quarantine flag once',
-    body: 'Onyx has no Developer ID certificate yet, so Gatekeeper blocks the first launch. One command fixes it permanently.',
-  },
-]
-
 export default function Install() {
   return (
-    <Section id="install" tint>
+    <Section id="install">
       <SectionHead
         eyebrow="install"
         title="Download. Drag. Done."
-        lede={`One ${'6.9 MB'} disk image for macOS 13+ on Apple Silicon. No installer, no account, no telemetry, no email.`}
+        lede={`One 6.9 MB disk image for macOS 13+ on Apple Silicon. No installer, no account, no email address.`}
       />
 
-      <div className="grid gap-4 lg:grid-cols-5">
-        <div className="space-y-4 lg:col-span-3">
-          {STEPS.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.06}>
-              <div className="flex gap-4 rounded-xl border border-line bg-surface p-5">
-                <span className="mt-0.5 font-mono text-[11px] text-accent">{s.n}</span>
-                <div>
-                  <h3 className="font-mono text-[14px] font-medium tracking-tight text-ink">
-                    {s.title}
-                  </h3>
-                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-muted">{s.body}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="space-y-4 lg:col-span-2">
+      <div className="mt-4 grid gap-4 lg:grid-cols-5">
+        <div className="space-y-3 lg:col-span-3">
+          <Reveal delay={0.06}>
+            <CopyBlock label="1 · download" code={LINKS.installCmd} />
+          </Reveal>
           <Reveal delay={0.1}>
-            <CopyBlock label="download" code={LINKS.installCmd} />
+            <CopyBlock
+              label="2 · clear the gatekeeper block"
+              code="xattr -dr com.apple.quarantine /Applications/Onyx.app"
+            />
           </Reveal>
           <Reveal delay={0.14}>
-            <CopyBlock label="clear the gatekeeper block" code="xattr -dr com.apple.quarantine /Applications/Onyx.app" />
-          </Reveal>
-          <Reveal delay={0.18}>
-            <div className="rounded-xl border-l-2 border-accent bg-surface p-5">
-              <h3 className="font-mono text-[12px] tracking-tight text-ink">
-                Why the extra step
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-muted">
-                Without a Developer ID certificate macOS quarantines the download and refuses to
-                open it. The build workflow already has the signing, notarization and stapling steps
-                written and inert — set{' '}
-                <span className="font-mono text-ink2">APPLE_SIGNING_IDENTITY</span> and they switch
-                on with no other change.
+            <div className="rounded-xl border border-line bg-bg p-5">
+              <h3 className="text-[14px] font-semibold tracking-tight">Why that second command exists</h3>
+              <p className="mt-2 text-[13.5px] leading-[1.7] text-muted">
+                Onyx is not signed with a Developer ID certificate yet, so macOS quarantines the
+                download and refuses to open it. One command clears the flag, permanently. The
+                build workflow already has signing, notarization and stapling written and inert —
+                switch on the identity and all three turn on with no other change.
               </p>
             </div>
           </Reveal>
         </div>
-      </div>
 
-      <Reveal delay={0.1}>
-        <div className="mt-4 rounded-xl border border-line bg-surface p-6">
-          <div className="flex flex-wrap items-center justify-between gap-5">
+        <Reveal delay={0.1} className="lg:col-span-2">
+          <div className="flex h-full flex-col justify-between rounded-xl border border-line bg-bg p-6">
             <div>
-              <h3 className="font-mono text-base tracking-tight text-ink">
-                Prefer to build it yourself?
-              </h3>
-              <p className="mt-1.5 text-[13.5px] text-muted">
-                Rust 1.85 or newer. The bundling script produces an ad-hoc signed{' '}
-                <span className="font-mono text-ink2">.app</span> and installs it for you.
-              </p>
+              <h3 className="text-[14px] font-semibold tracking-tight">Requirements</h3>
+              <ul className="mt-3 space-y-2 text-[13.5px] leading-[1.6] text-muted">
+                <li>macOS 13 or newer</li>
+                <li>Apple Silicon (arm64)</li>
+                <li>
+                  <code className="font-mono text-[12.5px] text-ink">claude</code> or{' '}
+                  <code className="font-mono text-[12.5px] text-ink">codex</code> on your PATH for
+                  the agent panes
+                </li>
+              </ul>
             </div>
-            <div className="w-full max-w-md">
-              <CopyBlock
-                multiline
-                code={`git clone https://github.com/onyxterminal/onyxterm
+            <div className="mt-6 border-t border-line pt-5">
+              <p className="text-[13px] text-muted">Prefer to build it yourself?</p>
+              <div className="mt-3">
+                <CopyBlock
+                  multiline
+                  code={`git clone https://github.com/onyxterminal/onyxterm
 cd onyxterm
 scripts/bundle-macos.sh --install`}
-              />
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
 
-      <Reveal delay={0.12}>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <CTA href={LINKS.download} variant="primary" download>
+      <Reveal delay={0.18}>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <CTA href={LINKS.download} variant="primary" download chip>
             Download Onyx {VERSION}
-            <span className="opacity-60">· arm64</span>
           </CTA>
-          <CTA href={LINKS.repo}>Browse the source</CTA>
+          <CTA href={LINKS.repo}>View on GitHub</CTA>
         </div>
       </Reveal>
     </Section>

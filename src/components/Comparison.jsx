@@ -39,8 +39,8 @@ export default function Comparison() {
     <Section id="compare" tint>
       <SectionHead
         eyebrow="what changes"
-        title="The same work, with the management part removed."
-        lede="Nothing here is a new concept. It is what happens when a terminal stops asking you to keep track of it."
+        title="The same work, minus the bookkeeping."
+        lede="Nothing here is a new idea. It is what happens when a terminal stops making you remember it."
       />
 
       <Reveal>

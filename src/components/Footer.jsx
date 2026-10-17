@@ -81,7 +81,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 font-mono text-[11px] text-faint sm:flex-row sm:items-center sm:justify-between">
           <span>Onyx {VERSION} · macOS 13+ · Apple Silicon</span>
-          <span>Built with Rust, GPUI and SQLite. Not affiliated with Zellij or Ghostty.</span>
+          <span>Onyx {VERSION} · macOS 13+ · Apple Silicon · built in the open</span>
         </div>
       </div>
     </footer>

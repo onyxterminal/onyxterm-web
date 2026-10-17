@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import Diagram from './Diagram.jsx'
+import AsciiLogo from './AsciiLogo.jsx'
 import { CTA, Reveal } from './ui.jsx'
 import { LINKS, SPECS } from '../site.js'
 
@@ -58,10 +59,21 @@ export default function Hero() {
               </CTA>
             </motion.div>
 
+            <motion.div custom={4} variants={rise} className="mt-9">
+              <div className="inline-block rounded-xl border border-line2 bg-ink px-6 py-5">
+                <div className="mb-3 flex items-center gap-2 font-mono text-[11px] text-surface/45">
+                  <span>❯</span>
+                  <span>onyx</span>
+                  <span className="caret ml-1 inline-block h-[1.1em] w-[6px] bg-surface" />
+                </div>
+                <AsciiLogo className="text-[11px] leading-[1.08] text-surface sm:text-[13px]" />
+              </div>
+            </motion.div>
+
             <motion.dl
-              custom={4}
+              custom={5}
               variants={rise}
-              className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5"
+              className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5"
             >
               {SPECS.map((s) => (
                 <div key={s.k} className="bg-surface px-4 py-3.5">
