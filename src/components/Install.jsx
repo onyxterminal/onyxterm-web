@@ -58,7 +58,7 @@ const STEPS = [
 
 export default function Install() {
   return (
-    <Section id="install">
+    <Section id="install" tint>
       <SectionHead
         eyebrow="install"
         title="Download. Drag. Done."

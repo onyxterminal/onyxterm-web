@@ -11,7 +11,7 @@ function Check() {
 
 export default function Agents() {
   return (
-    <Section id="agents">
+    <Section id="agents" tint>
       <SectionHead
         eyebrow="agent manager"
         title="Your agents get a pane. Not a scavenger hunt."

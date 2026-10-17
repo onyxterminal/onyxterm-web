@@ -13,7 +13,7 @@ const BOOT = [
 export default function Fidelity() {
   const longest = Math.max(...BOOT.map(([, v]) => parseFloat(v)))
   return (
-    <Section id="fidelity">
+    <Section id="fidelity" tint>
       <SectionHead
         eyebrow="terminal fidelity"
         title="New chrome. An old-school terminal underneath."

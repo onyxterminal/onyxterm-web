@@ -81,7 +81,7 @@ export default function Features() {
           const Icon = ICONS[f.icon] ?? Terminal
           return (
             <StaggerItem key={f.n} className={SPAN[f.span] ?? ''}>
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-line2 hover:shadow-[0_12px_32px_-20px_rgba(31,35,40,0.35)]">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-line2 hover:shadow-[0_12px_32px_-20px_rgba(29,29,31,0.30)]">
                 {/* accent hairline that sweeps in on hover */}
                 <span
                   className="absolute inset-x-0 top-0 h-px scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100"

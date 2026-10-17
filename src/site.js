@@ -21,7 +21,7 @@ export const SPECS = [
 export const NAV_LINKS = [
   { href: '#why', label: 'Why' },
   { href: '#model', label: 'How it works' },
-  { href: '#agents', label: 'Agents' },
+  { href: '#compare', label: 'What changes' },
   { href: '#features', label: 'Features' },
   { href: '#install', label: 'Install' },
 ]

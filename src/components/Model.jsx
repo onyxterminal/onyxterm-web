@@ -3,7 +3,7 @@ import { MODEL } from '../site.js'
 
 export default function Model() {
   return (
-    <Section id="model">
+    <Section id="model" tint>
       <SectionHead
         eyebrow="how it works"
         title="Three levels. One mental model."

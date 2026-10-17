@@ -1,25 +1,27 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-bg: #ffffff;
-  --color-surface: #f6f8fa;
-  --color-sunken: #f6f8fa;
-  --color-raise: #eaeef2;
-  --color-ink: #1f2328;
-  --color-ink2: #3d444d;
-  --color-muted: #656d76;
-  --color-faint: #8c959f;
-  --color-line: #d1d9e0;
-  --color-line2: #b7bfc6;
-  --color-accent: #d9480f;
+  /* warm off-white page, white cards — black / white / gray only */
+  --color-bg: #f4f4f1;
+  --color-surface: #ffffff;
+  --color-sunken: #ecece8;
+  --color-raise: #f8f8f6;
+  --color-ink: #0a0a0a;
+  --color-ink2: #2e2e2e;
+  --color-muted: #6b6b6b;
+  --color-faint: #9a9a9a;
+  --color-line: #e2e2dd;
+  --color-line2: #cfcfc9;
+  --color-accent: #0a0a0a;
   --color-onaccent: #ffffff;
 
+  --font-pixel: 'Geist Pixel', ui-monospace, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 html {
-  scroll-padding-top: 120px;
+  scroll-padding-top: 96px;
   background: var(--color-bg);
 }
 
@@ -33,11 +35,10 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: #ffffff;
+  background: var(--color-ink);
+  color: var(--color-surface);
 }
 
-/* thin scrollbar, matches the terminal aesthetic */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -54,18 +55,31 @@ body {
   background: var(--color-faint);
 }
 
-/* blueprint grid backdrop */
+/* the page has vertical rules down both edges on wide screens */
+.rule-frame {
+  border-left: 1px solid var(--color-line);
+  border-right: 1px solid var(--color-line);
+}
+
+/* dotted display face */
+.pixel {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+/* faint blueprint grid */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(31, 35, 40, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(31, 35, 40, 0.045) 1px, transparent 1px);
-  background-size: 56px 56px;
-  background-position: center;
+    linear-gradient(to right, rgba(10, 10, 10, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 .dot-bg {
-  background-image: radial-gradient(rgba(31, 35, 40, 0.09) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image: radial-gradient(rgba(10, 10, 10, 0.13) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 @keyframes blink {
@@ -91,31 +105,29 @@ body {
   }
 }
 .marquee-track {
-  animation: marquee 38s linear infinite;
+  animation: marquee 42s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 
-@keyframes pulse-ring {
-  0% {
-    box-shadow: 0 0 0 0 rgba(217, 72, 15, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 9px rgba(217, 72, 15, 0);
-  }
+@keyframes drift {
+  0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(217, 72, 15, 0);
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
   }
 }
-.live-dot {
-  animation: pulse-ring 2.2s ease-out infinite;
+.drift {
+  animation: drift 6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .caret,
   .marquee-track,
-  .live-dot {
+  .drift {
     animation: none;
   }
   .marquee-track {

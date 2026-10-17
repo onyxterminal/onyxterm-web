@@ -5,7 +5,9 @@ import Hero from './components/Hero.jsx'
 import Ticker from './components/Ticker.jsx'
 import Problem from './components/Problem.jsx'
 import Model from './components/Model.jsx'
+import Comparison from './components/Comparison.jsx'
 import Agents from './components/Agents.jsx'
+import MidCta from './components/MidCta.jsx'
 import Features from './components/Features.jsx'
 import Fidelity from './components/Fidelity.jsx'
 import Shortcuts from './components/Shortcuts.jsx'
@@ -49,12 +51,14 @@ export default function App() {
         <Hero />
         <Ticker />
         <Problem />
-        <Model />
-        <Agents />
+        <Model tint />
+        <Comparison />
+        <Agents tint />
+        <MidCta />
         <Features />
-        <Fidelity />
+        <Fidelity tint />
         <Shortcuts />
-        <Install />
+        <Install tint />
         <Faq />
       </main>
       <Footer />

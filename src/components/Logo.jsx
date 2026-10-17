@@ -1,0 +1,52 @@
+/**
+ * The Onyx mark, inlined so it inherits sizing cleanly and so the
+ * gradient id cannot collide with a second instance on the page.
+ * Light-background variant: black-to-gray ink.
+ */
+export default function Logo({
+  size = 20,
+  className = '',
+  title = 'Onyx',
+  tone = 'ink',
+}) {
+  const inverse = tone === 'inverse'
+  const gid = inverse ? 'onyx-ink-inverse' : 'onyx-ink'
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 1254 1254"
+      fill="none"
+      role="img"
+      aria-label={title}
+      className={className}
+    >
+      <defs>
+        <linearGradient
+          id={gid}
+          x1="627"
+          y1="255"
+          x2="627"
+          y2="960"
+          gradientUnits="userSpaceOnUse"
+        >
+          {inverse ? (
+            <>
+              <stop stopColor="#FFFFFF" />
+              <stop offset="1" stopColor="#D6D6D9" />
+            </>
+          ) : (
+            <>
+              <stop stopColor="#383838" />
+              <stop offset="1" stopColor="#171515" />
+            </>
+          )}
+        </linearGradient>
+      </defs>
+      <g fill={`url(#${gid})`}>
+        <path d="M506.5 188C506.5 145 546 117 584 140L1009 389C1032 403 1044.5 423 1044.5 447V768C1044.5 794 1031 815 1010 827L800 944C774 959 757 948 757 926V644C757 609 743 582 716 564L547 451C521 434 506.5 407 506.5 375V188Z" />
+        <path d="M208.5 479C208.5 426 263 387 309 414L638 619C662 634 675.5 657 675.5 683V1073C675.5 1110 641 1129 610 1106L249 857C223 840 208.5 816 208.5 786V479Z" />
+      </g>
+    </svg>
+  )
+}

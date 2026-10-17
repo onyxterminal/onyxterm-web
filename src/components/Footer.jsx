@@ -1,4 +1,5 @@
 import { Reveal, CTA } from './ui.jsx'
+import Logo from './Logo.jsx'
 import { LINKS, VERSION } from '../site.js'
 
 const COLUMNS = [
@@ -24,19 +25,20 @@ const COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line px-5 pt-20 pb-10 sm:px-8 md:pt-28">
-      <div className="pointer-events-none absolute inset-0 dot-bg opacity-40" aria-hidden />
+    <footer className="relative overflow-hidden border-t border-line bg-surface">
+      <div className="dot-bg pointer-events-none absolute inset-0 opacity-30" aria-hidden />
 
-      <div className="relative mx-auto w-full max-w-6xl">
+      <div className="rule-frame relative mx-auto w-full max-w-7xl px-5 pt-20 pb-10 sm:px-10 md:pt-28">
         <Reveal>
           <div className="flex flex-col items-start gap-7">
-            <h2 className="max-w-[16ch] text-3xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance sm:text-4xl md:text-5xl">
-              Stop managing terminals. <span className="text-accent">Start working.</span>
+            <h2 className="max-w-[18ch] text-[clamp(1.9rem,4.6vw,3.4rem)] leading-[1.04] font-semibold tracking-[-0.04em] text-balance">
+              Stop managing terminals.
+              <br />
+              <span className="pixel text-[1.1em]">Start working.</span>
             </h2>
             <div className="flex flex-wrap items-center gap-3">
-              <CTA href={LINKS.download} variant="primary" download>
+              <CTA href={LINKS.download} variant="primary" download chip>
                 Download for macOS
-                <span className="opacity-60">· 6.9 MB</span>
               </CTA>
               <CTA href={LINKS.repo}>View on GitHub</CTA>
             </div>
@@ -46,13 +48,10 @@ export default function Footer() {
         <div className="mt-16 grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <span className="relative flex h-4 w-4 items-center justify-center">
-                <span className="absolute inset-x-0 top-0 h-[4px] bg-accent" />
-                <span className="absolute inset-x-0 bottom-0 h-[4px] w-2 bg-ink" />
-              </span>
-              <span className="font-mono text-[14px] font-bold tracking-tight">Onyx</span>
+              <Logo size={18} />
+              <span className="text-[14px] font-semibold tracking-tight">Onyx</span>
             </div>
-            <p className="mt-4 max-w-sm text-[13.5px] leading-relaxed text-muted">
+            <p className="mt-4 max-w-sm text-[13.5px] leading-[1.7] text-muted">
               A local-first, Rust-native terminal workspace and agent control center for people with
               more sessions than tabs. Built in the open on a Mac.
             </p>
@@ -60,7 +59,7 @@ export default function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h3 className="font-mono text-[11px] tracking-[0.12em] text-faint uppercase">
+              <h3 className="font-mono text-[11px] tracking-[0.14em] text-faint uppercase">
                 {col.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
