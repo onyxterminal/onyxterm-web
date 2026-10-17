@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Reveal, Section, Stagger, StaggerItem, PixelLabel, PixelRule, CTA } from './ui.jsx'
+import Shot from './Shot.jsx'
 import { FEATURES } from '../site.js'
 import { LINKS } from '../site.js'
 
@@ -43,6 +44,13 @@ function What() {
           </StaggerItem>
         ))}
       </Stagger>
+
+      <Shot
+        className="mt-12"
+        src="/shot-panes.png"
+        alt="Three panes in one Onyx workspace: a running claude agent session, the project file tree, and a shell"
+        caption="One workspace, three panes: an agent mid-task, the file tree, and a shell that never moved."
+      />
     </Section>
   )
 }

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import Logo from './Logo.jsx'
+import Shot from './Shot.jsx'
 import { CTA } from './ui.jsx'
 import { LINKS } from '../site.js'
 
@@ -46,7 +47,11 @@ export default function Hero() {
             </CTA>
           </motion.div>
 
-          <motion.dl custom={4} variants={rise} className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
+          <motion.div
+            custom={4}
+            variants={rise}
+            className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4"
+          >
             {[
               ['v0.4.0', 'current release'],
               ['arm64', 'Apple Silicon'],
@@ -54,12 +59,20 @@ export default function Hero() {
               ['none', 'accounts or telemetry'],
             ].map(([v, k]) => (
               <div key={k}>
-                <dt className="font-mono text-[15px] font-medium">{v}</dt>
-                <dd className="mt-0.5 font-mono text-[11px] text-faint">{k}</dd>
+                <div className="font-mono text-[15px] font-medium">{v}</div>
+                <div className="mt-0.5 font-mono text-[11px] text-faint">{k}</div>
               </div>
             ))}
-          </motion.dl>
+          </motion.div>
         </motion.div>
+      </div>
+
+      <div className="mx-auto mt-16 w-full max-w-5xl px-5 sm:px-8 md:mt-20">
+        <Shot
+          src="/shot-editor.png"
+          alt="The Onyx app: a file tree on the left, a Rust source file open in the editor on top, and a shell pane underneath"
+          caption="Editor, file tree and shell in one window. Tabs across the top; every pane named."
+        />
       </div>
     </section>
   )
