@@ -81,39 +81,31 @@ export const AGENT_GUARANTEES = [
 export const FEATURES = [
   {
     n: '01',
-    icon: 'Terminal',
-    span: 2,
     title: 'A real terminal, not a preview',
     body: 'Real PTYs, not pipes. Full VT emulation, true color, mouse reporting, application cursor keys, bracketed paste and wide glyphs. When a program asks for something specific, Onyx does it.',
   },
   {
     n: '02',
-    icon: 'Bot',
     title: 'Agents as panes',
     body: 'claude and codex launch into assigned panes you can focus, watch and stop.',
   },
   {
     n: '03',
-    icon: 'Tags',
     title: 'Named everything',
     body: 'Workspaces, tabs and panes all get names. Hit ⌘R to rename. It sticks across restarts.',
   },
   {
     n: '04',
-    icon: 'Keyboard',
     title: 'One keystroke away',
     body: 'A conflict-checked keymap and a command palette. Every action is two letters and Enter.',
   },
   {
     n: '05',
-    icon: 'FolderTree',
     title: 'Editor & file tree',
     body: 'Open files beside your terminal, with git status, quick open and syntax highlighting.',
   },
   {
     n: '06',
-    icon: 'ShieldCheck',
-    span: 2,
     title: 'Local, private, yours',
     body: 'No account. No telemetry. No cloud. Six themes, customizable with hex values. Your workspaces live in a SQLite file on your own disk and nowhere else.',
   },

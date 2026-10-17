@@ -2,32 +2,22 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
-import Ticker from './components/Ticker.jsx'
-import Problem from './components/Problem.jsx'
-import Comparison from './components/Comparison.jsx'
-import Features from './components/Features.jsx'
-import Install from './components/Install.jsx'
-import Footer from './components/Footer.jsx'
+import { Why, What, Install, Footer } from './components/Sections.jsx'
+import { PixelRule } from './components/ui.jsx'
 
-/** Smooth scroll, unless the user asked for reduced motion. */
 function useLenis() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
     const lenis = new Lenis({
-      duration: 1.05,
+      duration: 1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      touchMultiplier: 1.6,
     })
-
     let id
-    const raf = (time) => {
-      lenis.raf(time)
+    const raf = (t) => {
+      lenis.raf(t)
       id = requestAnimationFrame(raf)
     }
     id = requestAnimationFrame(raf)
-
     return () => {
       cancelAnimationFrame(id)
       lenis.destroy()
@@ -37,17 +27,23 @@ function useLenis() {
 
 export default function App() {
   useLenis()
-
   return (
     <>
       <Nav />
-      <main>
+      <main id="top">
         <Hero />
-        <Ticker />
-        <Problem />
-        <Comparison tint />
-        <Features />
-        <Install tint />
+        <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
+          <PixelRule />
+        </div>
+        <Why />
+        <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
+          <PixelRule />
+        </div>
+        <What />
+        <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
+          <PixelRule />
+        </div>
+        <Install />
       </main>
       <Footer />
     </>
