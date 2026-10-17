@@ -39,18 +39,24 @@ export function initLenis() {
   }
 }
 
+/* Must match the sticky header (h-16 = 64px) plus a little breathing room. */
+const NAV_OFFSET = 84
+
 export function scrollToId(id) {
   const el = document.getElementById(id)
   if (!el) return
 
-  // The nav is sticky; land the target below it rather than under it.
-  const offset = -(parseInt(getComputedStyle(document.documentElement).scrollPaddingTop, 10) || 0)
+  // Compute the absolute destination ourselves. Passing the element plus an
+  // offset to the scroller was landing every anchor ~350px short of where it
+  // should be, because the offset gets applied on top of the element's own
+  // scroll margin. An absolute pixel target is unambiguous.
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET
 
   if (lenis) {
-    lenis.scrollTo(el, { offset })
+    lenis.scrollTo(Math.max(0, top))
     return
   }
-  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset, behavior: 'smooth' })
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
 }
 
 /**
