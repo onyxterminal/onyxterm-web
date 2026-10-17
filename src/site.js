@@ -81,54 +81,81 @@ export const AGENT_GUARANTEES = [
 export const FEATURES = [
   {
     n: '01',
+    icon: 'Terminal',
+    span: 2,
     title: 'Real PTY terminals',
-    body: 'Real PTYs, not pipes. Full VT, true color, alternate screen, bracketed paste, wide glyphs.',
+    body: 'Real PTYs, not pipes. Full VT, true color, alternate screen, bracketed paste and wide glyphs. Programs ask for behaviour and Onyx delivers it.',
   },
   {
     n: '02',
+    icon: 'Bot',
     title: 'Agents as panes',
     body: 'claude and codex launch into assigned panes you can focus, watch and stop.',
   },
   {
     n: '03',
+    icon: 'Tags',
     title: 'Named everything',
     body: 'Workspaces, tabs and panes all get names. Nothing stays stuck as “Tab 7”.',
   },
   {
     n: '04',
+    icon: 'Command',
     title: 'Command palette',
     body: 'Type two letters, hit enter. Every action is one keystroke away.',
   },
   {
     n: '05',
+    icon: 'Keyboard',
     title: 'Rebindable keys',
     body: 'Conflict-checked, and overridable from Settings. Make it feel like yours.',
   },
   {
     n: '06',
+    icon: 'MousePointer2',
     title: 'A mouse that behaves',
-    body: 'Selection, middle-click paste, cmd-click links, and full mouse reporting for apps that want it.',
+    body: 'Selection, middle-click paste, cmd-click links, and full mouse reporting.',
   },
   {
     n: '07',
+    icon: 'Copy',
+    span: 2,
     title: 'Copy mode & search',
-    body: 'Search your scrollback, step with the keyboard, copy straight to the clipboard.',
+    body: 'Search your scrollback, step through it with the keyboard, and copy straight to the clipboard. Ten thousand lines retained per pane by default.',
   },
   {
     n: '08',
+    icon: 'FolderTree',
     title: 'Editor & file tree',
     body: 'Open files beside your terminal with a project tree, git status and quick open.',
   },
   {
     n: '09',
+    icon: 'Palette',
     title: 'Six themes',
-    body: 'Apple Light, Onyx Dark, Nord, Dracula, Solarized. Customize any of them with hex values.',
+    body: 'Apple Light, Onyx Dark, Nord, Dracula, Solarized. Customize with hex values.',
   },
   {
     n: '10',
+    icon: 'ShieldCheck',
     title: 'Local and private',
     body: 'No account, no telemetry, no cloud. Your data is a file on your own disk.',
   },
+]
+
+export const TICKER = [
+  'real PTYs, not pipes',
+  'named workspaces',
+  'layouts that survive a restart',
+  'claude & codex as first-class panes',
+  'no account',
+  'no telemetry',
+  'no cloud',
+  'conflict-checked keybindings',
+  'true color',
+  'bracketed paste',
+  'git-aware file tree',
+  '10,000 lines of scrollback',
 ]
 
 export const FIDELITY = [

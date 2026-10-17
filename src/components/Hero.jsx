@@ -43,7 +43,7 @@ export default function Hero() {
           <motion.h1
             custom={1}
             variants={rise}
-            className="max-w-[15ch] text-[2.75rem] leading-[1.03] font-semibold tracking-[-0.03em] text-balance sm:text-6xl md:text-[4.6rem]"
+            className="max-w-[15ch] text-[clamp(2.5rem,7.4vw,5rem)] leading-[1] font-semibold tracking-[-0.045em] text-balance"
           >
             Every shell and agent,{' '}
             <span className="relative whitespace-nowrap">

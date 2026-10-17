@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
 import { LINKS, NAV_LINKS } from '../site.js'
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 260, damping: 34, mass: 0.25 })
+  return (
+    <motion.div
+      style={{ scaleX }}
+      className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-accent"
+      aria-hidden
+    />
+  )
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -110,6 +122,7 @@ export default function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
+      <ScrollProgress />
     </header>
   )
 }

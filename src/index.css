@@ -19,7 +19,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 120px;
   background: var(--color-bg);
 }
@@ -114,12 +113,12 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   .caret,
   .marquee-track,
   .live-dot {
     animation: none;
+  }
+  .marquee-track {
+    transform: none;
   }
 }

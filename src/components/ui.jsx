@@ -69,13 +69,15 @@ export function SectionHead({ eyebrow, title, lede, align = 'left' }) {
         <Eyebrow>{eyebrow}</Eyebrow>
       </Reveal>
       <Reveal delay={0.06}>
-        <h2 className="max-w-3xl text-3xl leading-[1.1] font-semibold tracking-tight text-balance sm:text-4xl md:text-[2.75rem]">
+        <h2 className="max-w-[21ch] text-[clamp(1.7rem,4.1vw,2.7rem)] leading-[1.07] font-semibold tracking-[-0.032em] text-balance">
           {title}
         </h2>
       </Reveal>
       {lede && (
         <Reveal delay={0.12}>
-          <p className={`max-w-2xl text-base leading-relaxed text-ink2 md:text-lg ${align === 'center' ? 'mx-auto' : ''}`}>
+          <p
+            className={`max-w-[62ch] text-[clamp(0.95rem,1.5vw,1.1rem)] leading-[1.65] text-ink2 ${align === 'center' ? 'mx-auto' : ''}`}
+          >
             {lede}
           </p>
         </Reveal>
