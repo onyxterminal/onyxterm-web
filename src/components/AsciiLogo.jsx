@@ -26,11 +26,11 @@ const ART = [
   '               .+##+                ',
 ]
 
-export default function AsciiLogo({ className = '', dim = false }) {
+export default function AsciiLogo({ className = '' }) {
   return (
     <pre
-      className={`pixel overflow-x-auto text-[7px] leading-[1.12] leading-none whitespace-pre sm:text-[8px] ${dim ? 'text-faint' : 'text-ink'} ${className}`}
-      aria-label="Onyx logo, rendered as ASCII art"
+      className={`pixel leading-[1.05] whitespace-pre select-none ${className}`}
+      aria-hidden
     >
       {ART.join('\n')}
     </pre>

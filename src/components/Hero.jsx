@@ -20,6 +20,13 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden />
 
+      {/* the mark, rasterised, sitting behind the whole page */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center">
+          <AsciiLogo className="text-[clamp(30px,8.5vw,86px)] text-ink/[0.055]" />
+        </div>
+      </div>
+
       <div className="rule-frame relative mx-auto w-full max-w-7xl">
         <div className="px-5 pt-16 pb-10 sm:px-10 md:pt-24 md:pb-14">
           <motion.div initial="hidden" animate="show" className="max-w-3xl">
@@ -59,33 +66,20 @@ export default function Hero() {
               </CTA>
             </motion.div>
 
-            <motion.div custom={4} variants={rise} className="mt-9">
-              <div className="inline-block rounded-xl border border-line2 bg-ink px-6 py-5">
-                <div className="mb-3 flex items-center gap-2 font-mono text-[11px] text-surface/45">
-                  <span>❯</span>
-                  <span>onyx</span>
-                  <span className="caret ml-1 inline-block h-[1.1em] w-[6px] bg-surface" />
-                </div>
-                <AsciiLogo className="text-[11px] leading-[1.08] text-surface sm:text-[13px]" />
-              </div>
+            <motion.div custom={4} variants={rise} className="mt-12">
+              <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
+                {SPECS.map((s) => (
+                  <div key={s.k} className="bg-surface px-4 py-3.5">
+                    <dt className="font-mono text-[10px] tracking-[0.12em] text-faint uppercase">
+                      {s.k}
+                    </dt>
+                    <dd className={`mt-1 font-mono text-[13px] ${s.accent ? 'text-ink' : 'text-muted'}`}>
+                      {s.v}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </motion.div>
-
-            <motion.dl
-              custom={5}
-              variants={rise}
-              className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5"
-            >
-              {SPECS.map((s) => (
-                <div key={s.k} className="bg-surface px-4 py-3.5">
-                  <dt className="font-mono text-[10px] tracking-[0.12em] text-faint uppercase">
-                    {s.k}
-                  </dt>
-                  <dd className={`mt-1 font-mono text-[13px] ${s.accent ? 'text-ink' : 'text-muted'}`}>
-                    {s.v}
-                  </dd>
-                </div>
-              ))}
-            </motion.dl>
           </motion.div>
         </div>
 
