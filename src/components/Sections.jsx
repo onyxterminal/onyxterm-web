@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Reveal, Section, Stagger, StaggerItem, PixelLabel, PixelRule, CTA } from './ui.jsx'
+import { Reveal, Section, Stagger, StaggerItem, PixelRule, CTA } from './ui.jsx'
+import Logo from './Logo.jsx'
 import Shot from './Shot.jsx'
-import { FEATURES } from '../site.js'
-import { LINKS } from '../site.js'
+import { FEATURES, LINKS } from '../site.js'
 
 /* ---------------------------------------------------------------- */
 
