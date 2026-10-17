@@ -5,7 +5,8 @@ import { motion } from 'motion/react'
  *
  * The PNGs already contain the real Onyx window — titlebar, traffic lights,
  * tabs and all — so this deliberately adds no invented window chrome on
- * top of them. Only a hairline border and a shadow to seat it on the page.
+ * top of them. Only a hairline and a warm-tinted shadow to seat it on the
+ * paper. See the note in README.md before changing this.
  */
 export default function Shot({
   src,
@@ -16,29 +17,16 @@ export default function Shot({
   width = 1280,
   height = 803,
   eager = false,
-  glow = false,
 }) {
   return (
     <motion.figure
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 22 }}
       {...(eager ? { animate: { opacity: 1, y: 0 } } : { whileInView: { opacity: 1, y: 0 } })}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       <div className="relative">
-        {glow && (
-          /* inset, not -inset-x: a negative horizontal inset pushed the
-             blurred layer past the viewport and forced a mobile scrollbar */
-          <div
-            className="pointer-events-none absolute inset-x-0 -top-10 bottom-4 -z-10 blur-2xl"
-            style={{
-              background:
-                'radial-gradient(58% 56% at 50% 42%, rgba(11,98,204,0.09), transparent 70%)',
-            }}
-            aria-hidden
-          />
-        )}
         <img
           src={src}
           alt={alt}
@@ -47,12 +35,15 @@ export default function Shot({
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           {...(eager ? { fetchPriority: 'high' } : {})}
-          className="block w-full rounded-xl border border-line shadow-[0_28px_70px_-24px_rgba(0,0,0,0.28)]"
+          className="block w-full rounded-[4px] border border-line2 shadow-[0_24px_60px_-28px_rgba(11,11,12,0.35),0_2px_6px_-2px_rgba(11,11,12,0.08)]"
         />
       </div>
       {caption && (
-        <figcaption className="mt-4 font-mono text-[11.5px] leading-[1.6] text-faint">
-          {caption}
+        <figcaption className="mt-3.5 flex items-baseline gap-2.5 font-mono text-[11px] leading-[1.6] text-faint">
+          <span className="text-accent" aria-hidden>
+            ›
+          </span>
+          <span>{caption}</span>
         </figcaption>
       )}
     </motion.figure>
