@@ -7,6 +7,11 @@ import { motion } from 'motion/react'
  * tabs and all — so this deliberately adds no invented window chrome on
  * top of them. Only a hairline and a warm-tinted shadow to seat it on the
  * paper. See the note in README.md before changing this.
+ *
+ * `src` is resolved against Vite's BASE_URL rather than written as "/x.png".
+ * This site is published to a project subpath (/onyxterm-web/), so an
+ * absolute path silently 404s in production while working perfectly in dev.
+ * Vite rewrites index.html refs for you; it does not touch runtime JSX.
  */
 export default function Shot({
   src,
@@ -18,6 +23,7 @@ export default function Shot({
   height = 803,
   eager = false,
 }) {
+  const resolved = src.startsWith('http') ? src : `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`
   return (
     <motion.figure
       initial={{ opacity: 0, y: 22 }}
@@ -28,7 +34,7 @@ export default function Shot({
     >
       <div className="relative">
         <img
-          src={src}
+          src={resolved}
           alt={alt}
           width={width}
           height={height}
