@@ -41,7 +41,10 @@ export default function Shot({
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           {...(eager ? { fetchPriority: 'high' } : {})}
-          className="block w-full rounded-[4px] border border-line2 shadow-[0_24px_60px_-28px_rgba(11,11,12,0.35),0_2px_6px_-2px_rgba(11,11,12,0.08)]"
+          /* The outline is pure black at low alpha, not a grey token: a tinted
+             border picks up the paper colour underneath and reads as dirt
+             along the image edge. */
+          className="block w-full rounded-[4px] border border-black/10 shadow-[0_24px_60px_-28px_rgba(10,10,10,0.28),0_2px_6px_-2px_rgba(10,10,10,0.06)]"
         />
       </div>
       {caption && (

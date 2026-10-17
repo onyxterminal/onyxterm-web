@@ -96,6 +96,10 @@ body {
   font-weight: 500;
   letter-spacing: -0.04em;
   line-height: 1.06;
+  /* Balance the line lengths. Mono headings are narrow, so an unbalanced
+     wrap strands a single word on the last line far more often than a
+     proportional face would. */
+  text-wrap: balance;
 }
 
 /* small tracked mono — eyebrows, table keys, captions */

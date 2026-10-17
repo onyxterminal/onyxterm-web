@@ -108,7 +108,7 @@ export function Keycap({ children, className = '' }) {
 /* --------------------------------------------------------------- actions */
 
 const CTA_BASE =
-  'inline-flex items-center justify-center gap-2 rounded-[3px] px-5 py-3 font-mono text-[13px] leading-none font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow,transform] duration-150 active:translate-y-px'
+  'inline-flex items-center justify-center gap-2 rounded-[3px] px-5 py-3 font-mono text-[13px] leading-none font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow,transform] duration-150 active:scale-[0.96]'
 
 const CTA_STYLES = {
   primary: 'bg-ink text-onaccent hover:bg-ink2',

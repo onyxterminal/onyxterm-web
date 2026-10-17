@@ -6,18 +6,20 @@ import { observeSections } from '../scroll.js'
 
 const SECTION_IDS = NAV_LINKS.map((l) => l.href.slice(1))
 
-function NavLink({ link, active, onClick }) {
+function NavLink({ link, active, onClick, roomy = false }) {
   return (
     <a
       href={link.href}
       onClick={onClick}
       aria-current={active ? 'true' : undefined}
-      className={`group flex items-baseline gap-1.5 rounded-md px-2.5 py-1.5 font-mono text-[12.5px] transition-colors duration-150 ${
-        active ? 'text-ink' : 'text-faint hover:text-ink'
-      }`}
+      className={`group flex items-baseline gap-2 font-mono text-[12.5px] transition-colors duration-150 ${
+        roomy
+          ? 'w-full rounded-[3px] px-3 py-3' // 44px row for touch
+          : 'rounded-md px-2.5 py-1.5'
+      } ${active ? 'text-ink' : 'text-faint hover:text-ink'}`}
     >
-      <span className={`tnum text-[10px] ${active ? 'text-accent' : 'text-line2'}`}>{link.n}</span>
-      <span className={active ? 'underline decoration-accent decoration-1 underline-offset-[5px]' : ''}>
+      <span className={`tnum text-[10px] ${active ? 'text-ink' : 'text-line2'}`}>{link.n}</span>
+      <span className={active ? 'underline decoration-ink decoration-1 underline-offset-[5px]' : ''}>
         {link.label}
       </span>
     </a>
@@ -87,26 +89,43 @@ export default function Nav() {
             aria-expanded={open}
             aria-controls="site-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="flex h-9 w-9 items-center justify-center rounded-[3px] border border-line2 text-ink transition-colors duration-150 hover:bg-sunken lg:hidden"
+            className="relative flex h-11 w-11 items-center justify-center rounded-[3px] border border-line2 text-ink transition-colors duration-150 hover:bg-sunken lg:hidden"
           >
-            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden>
-              {open ? (
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  d="M4 4l8 8M12 4l-8 8"
-                />
-              ) : (
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"
-                />
-              )}
+            {/* Both glyphs stay mounted and cross-fade + rotate, so the
+                control never pops between two unrelated shapes. */}
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 16 16"
+              aria-hidden
+              className={`absolute transition-[opacity,transform] duration-200 ${
+                open ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+              }`}
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"
+              />
+            </svg>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 16 16"
+              aria-hidden
+              className={`absolute transition-[opacity,transform] duration-200 ${
+                open ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+              }`}
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                d="M4 4l8 8M12 4l-8 8"
+              />
             </svg>
           </button>
         </div>
@@ -125,6 +144,7 @@ export default function Nav() {
               <NavLink
                 key={l.href}
                 link={l}
+                roomy
                 active={active === l.href.slice(1)}
                 onClick={() => setOpen(false)}
               />
@@ -135,7 +155,7 @@ export default function Nav() {
               href={LINKS.repo}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-[3px] border border-line2 px-3.5 py-2.5 font-mono text-[12px] text-ink"
+              className="inline-flex min-h-11 items-center gap-2 rounded-[3px] border border-line2 px-4 font-mono text-[12px] text-ink"
             >
               <GithubMark size={14} />
               Source
@@ -144,7 +164,7 @@ export default function Nav() {
               href={LINKS.repo}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-[3px] border border-line2 px-3.5 py-2.5 font-mono text-[12px] text-ink"
+              className="inline-flex min-h-11 items-center gap-2 rounded-[3px] border border-line2 px-4 font-mono text-[12px] text-ink"
             >
               <Dot tone="accent" className="h-1.5 w-1.5" />
               <span className="tnum">{REPO.stars} stars</span>
