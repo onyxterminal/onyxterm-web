@@ -13,8 +13,9 @@ const rise = {
 
 export default function Hero() {
   return (
-    <section className="px-5 pt-20 pb-16 sm:px-8 md:pt-28 md:pb-24">
-      <div className="mx-auto w-full max-w-3xl">
+    <section className="px-5 pt-16 pb-14 sm:px-8 md:pt-24 md:pb-20">
+      <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+        {/* words */}
         <motion.div initial="hidden" animate="show">
           <motion.div custom={0} variants={rise}>
             <Logo size={26} />
@@ -23,21 +24,25 @@ export default function Hero() {
           <motion.h1
             custom={1}
             variants={rise}
-            className="mt-9 text-[clamp(2.6rem,8vw,4.75rem)] leading-[0.98] font-bold tracking-[-0.045em] text-balance"
+            className="mt-8 text-[clamp(2.2rem,5.4vw,3.5rem)] leading-[1] font-bold tracking-[-0.04em] text-balance"
           >
             Every shell
             <br />
             and agent,
             <br />
-            <span className="pixel text-[0.86em]">one workspace</span>
+            <span className="pixel text-[0.84em]">one workspace</span>
           </motion.h1>
 
-          <motion.p custom={2} variants={rise} className="mt-8 max-w-[46ch] text-lg leading-[1.55] text-muted">
+          <motion.p
+            custom={2}
+            variants={rise}
+            className="mt-7 max-w-[42ch] text-[17px] leading-[1.55] text-muted"
+          >
             A native Rust terminal where your shells and your coding agents live in one place — and
             remember exactly how you left it.
           </motion.p>
 
-          <motion.div custom={3} variants={rise} className="mt-9 flex flex-wrap items-center gap-3">
+          <motion.div custom={3} variants={rise} className="mt-8 flex flex-wrap items-center gap-2.5">
             <CTA href={LINKS.download} variant="primary" download>
               Download for macOS
             </CTA>
@@ -47,10 +52,10 @@ export default function Hero() {
             </CTA>
           </motion.div>
 
-          <motion.div
+          <motion.dl
             custom={4}
             variants={rise}
-            className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-line pt-7"
           >
             {[
               ['v0.4.0', 'current release'],
@@ -59,19 +64,18 @@ export default function Hero() {
               ['none', 'accounts or telemetry'],
             ].map(([v, k]) => (
               <div key={k}>
-                <div className="font-mono text-[15px] font-medium">{v}</div>
-                <div className="mt-0.5 font-mono text-[11px] text-faint">{k}</div>
+                <dt className="font-mono text-[14px] font-medium">{v}</dt>
+                <dd className="mt-0.5 font-mono text-[10.5px] text-faint">{k}</dd>
               </div>
             ))}
-          </motion.div>
+          </motion.dl>
         </motion.div>
-      </div>
 
-      <div className="mx-auto mt-16 w-full max-w-5xl px-5 sm:px-8 md:mt-20">
+        {/* image */}
         <Shot
           src="/shot-editor.png"
           alt="The Onyx app: a file tree on the left, a Rust source file open in the editor on top, and a shell pane underneath"
-          caption="Editor, file tree and shell in one window. Tabs across the top; every pane named."
+          caption="Editor, file tree and shell in one window."
         />
       </div>
     </section>
